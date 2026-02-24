@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mohd Tauseef Ansari - Portfolio Website
 
-## Getting Started
+A futuristic, highly polished, dark-mode first portfolio website tailored for a Full-Stack Developer with AI and Cyber Security sub-focuses.
 
-First, run the development server:
+## Features
+- **Next.js 14 App Router** for Server-side rendering and edge functions.
+- **Three.js & React Three Fiber** for a subtle 3D star background.
+- **Tailwind CSS v4** with glassmorphism and custom neon tokens.
+- **Framer Motion** for scroll-triggered reveal animations.
+- **Dynamic GitHub API Integration** using React Server Components.
+- **Nodemailer Contact Form** with Zod schema validation.
+- **Full SEO Optimization** with OpenGraph tags, sitemap, and robots.txt.
+- **Futuristic Dual-Spinner Loading** and interactive cursor.
+
+## Prerequisites
+- Node.js >= 18.0.0
+- MongoDB Atlas cluster URL
+- SMTP credentials for Nodemailer (e.g., Gmail App Password)
+
+## Environment Setup
+Create a `.env.local` file in the root based on `.env.example`:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+MONGODB_URI=your_mongodb_connection_string
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_app_password
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running the Application
+Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Start the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build for production:
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+This project is optimized for deployment on Vercel. 
+Simply push to GitHub and import the repository in Vercel. Ensure to add the environment variables in the Vercel project settings.
