@@ -5,7 +5,7 @@ import { BookOpen, ExternalLink, Award, FileText } from 'lucide-react';
 
 export default function Research() {
   return (
-    <section id="research" className="py-24 relative overflow-hidden bg-black/30 border-y border-glass-border">
+    <section id="research" className="py-24 relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-neon-blue/5 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -18,7 +18,6 @@ export default function Research() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-6 flex items-center gap-4"
           >
-            <span className="text-transparent border-text">04.</span>
             Research & Publications
           </motion.h2>
           <motion.div
@@ -27,7 +26,7 @@ export default function Research() {
             viewport={{ once: true }}
             className="w-full h-px bg-glass-border relative"
           >
-            <div className="absolute top-0 right-32 h-full w-48 bg-electric-purple"></div>
+            <div className="absolute top-0 left-0 h-full w-32 bg-electric-purple"></div>
           </motion.div>
         </div>
 
@@ -61,7 +60,7 @@ export default function Research() {
                 <h4 className="text-neon-blue font-semibold mb-3 flex items-center gap-2">
                   <FileText size={18} /> Abstract Preview
                 </h4>
-                <p className="text-gray-300 leading-relaxed max-w-3xl">
+                <p className="text-gray-300 line-clamp-4 leading-relaxed max-w-3xl">
                   The rapid integration of Internet of Things (IoT) devices into modern healthcare creates significant security risks for sensitive patient data. Medical images are particularly vulnerable due to their large file sizes and high pixel redundancy, yet conventional encryption algorithms are often too computationally intensive for the resource-constrained hardware found in IoT devices. This paper proposes a novel hybrid encryption framework designed to resolve this security-performance trade-off. Our method first employs the AES S-box to introduce strong confusion, using its proven non-linear substitution to obscure statistical patterns within the image. Subsequently, a performance-optimized, reduced-round ChaCha20 stream cipher is used to achieve rapid diffusion. This stage ensures that even a single-bit change in the input is spread unpredictably across the entire ciphertext, making the output highly randomized. Experimental analysis confirms the framework's robust security. The scheme achieves an information entropy of ~7.997, indicating near-perfect randomness, while reducing pixel correlation coefficients to negligible values. A Number of Pixel Change Rate (NPCR) exceeding 99.5% for single-bit variations highlights its strong avalanche effect and resilience against differential cryptanalysis. By delivering these strong security guarantees with faster encryption speeds and minimal memory overhead, our hybrid framework presents a practical and scalable solution for securing sensitive medical images in real-time Internet of Health Systems (IoHS) applications like remote diagnostics and secure mobile health.
                 </p>
               </div>

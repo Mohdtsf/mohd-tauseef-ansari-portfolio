@@ -50,7 +50,7 @@ export default function Contact() {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      
+
       // Reset status after a few seconds on success
       if (submitStatus !== 'error') {
         setTimeout(() => setSubmitStatus('idle'), 5000);
@@ -64,18 +64,17 @@ export default function Contact() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-[500px] bg-electric-purple/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        
+
         <div className="mb-16 md:mb-24 flex flex-col items-center text-center">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-6 flex items-center justify-center gap-4"
           >
-            <span className="text-transparent border-text">06.</span> 
             Get In Touch
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -86,16 +85,16 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 max-w-5xl mx-auto">
-          
+
           {/* Contact Info */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="md:col-span-2 space-y-8"
           >
             <div className="glass p-8 rounded-2xl border-neon-blue/20 hover:border-electric-purple/40 transition-colors h-full flex flex-col justify-center gap-8 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
-              
+
               <div className="flex items-start gap-4">
                 <div className="p-4 rounded-xl bg-neon-blue/10 text-neon-blue border border-neon-blue/20">
                   <Mail size={24} />
@@ -103,7 +102,7 @@ export default function Contact() {
                 <div>
                   <h4 className="text-white font-semibold mb-1">Email</h4>
                   <a href="mailto:mohdtauseefansari34@gmail.com" className="text-gray-400 hover:text-neon-blue transition-colors text-sm md:text-base break-all">
-                    mohdtauseefansari34<br/>@gmail.com
+                    mohdtauseefansari34<br />@gmail.com
                   </a>
                 </div>
               </div>
@@ -115,7 +114,7 @@ export default function Contact() {
                 <div>
                   <h4 className="text-white font-semibold mb-1">Location</h4>
                   <p className="text-gray-400 text-sm md:text-base">
-                    New Delhi, India<br/>
+                    New Delhi, India<br />
                     <span className="text-xs text-gray-500 mt-1 block">Available for remote work</span>
                   </p>
                 </div>
@@ -125,19 +124,19 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="md:col-span-3"
           >
             <form onSubmit={handleSubmit(onSubmit)} className="glass p-8 rounded-2xl border-glass-border shadow-[0_4px_30px_rgba(0,0,0,0.5)] flex flex-col gap-6">
-              
+
               <div className="flex flex-col gap-1.5 border-b border-glass-border focus-within:border-neon-blue transition-colors pb-2 relative group">
                 <label htmlFor="name" className="text-sm font-mono text-gray-400 group-focus-within:text-neon-blue transition-colors">Name</label>
-                <input 
+                <input
                   id="name"
-                  type="text" 
+                  type="text"
                   className="bg-transparent border-none outline-none text-white focus:ring-0 px-0 w-full"
                   placeholder="John Doe"
                   {...register("name")}
@@ -147,9 +146,9 @@ export default function Contact() {
 
               <div className="flex flex-col gap-1.5 border-b border-glass-border focus-within:border-neon-blue transition-colors pb-2 relative group mt-4">
                 <label htmlFor="email" className="text-sm font-mono text-gray-400 group-focus-within:text-neon-blue transition-colors">Email</label>
-                <input 
+                <input
                   id="email"
-                  type="email" 
+                  type="email"
                   className="bg-transparent border-none outline-none text-white focus:ring-0 px-0 w-full"
                   placeholder="john@example.com"
                   {...register("email")}
@@ -159,7 +158,7 @@ export default function Contact() {
 
               <div className="flex flex-col gap-1.5 border-b border-glass-border focus-within:border-electric-purple transition-colors pb-2 relative group mt-4">
                 <label htmlFor="message" className="text-sm font-mono text-gray-400 group-focus-within:text-electric-purple transition-colors">Message</label>
-                <textarea 
+                <textarea
                   id="message"
                   className="bg-transparent border-none outline-none text-white focus:ring-0 px-0 w-full resize-none h-32"
                   placeholder="Hello, I'd like to talk about..."
@@ -168,8 +167,8 @@ export default function Contact() {
                 {errors.message && <span className="absolute bottom-[-20px] left-0 text-xs text-red-400">{errors.message.message}</span>}
               </div>
 
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={isSubmitting}
                 className="mt-6 flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-white/5 border border-glass-border text-white font-medium hover:bg-neon-blue hover:text-black hover:border-neon-blue transition-all disabled:opacity-50 disabled:cursor-not-allowed group/btn"
               >
@@ -177,7 +176,7 @@ export default function Contact() {
                   <span className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin"></span>
                 ) : (
                   <>
-                    Send Message 
+                    Send Message
                     <Send size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
                   </>
                 )}

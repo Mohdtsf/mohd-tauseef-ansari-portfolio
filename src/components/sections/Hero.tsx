@@ -167,7 +167,8 @@ export default function Hero() {
                 <img
                   src="/mohd-tauseefansari.png"
                   alt="Mohd Tauseef Ansari"
-                  className="absolute inset-0 w-full h-full object-cover z-10"
+                  draggable="false"
+                  className="absolute inset-0 w-full h-full object-cover z-10 pointer-events-none select-none [-webkit-user-drag:none] [user-drag:none]"
                 />
 
 

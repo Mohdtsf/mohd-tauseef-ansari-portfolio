@@ -5,7 +5,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-glass-border glass mt-20">
+    <footer className="relative border-t border-glass-border mt-20">
       <div className="container mx-auto px-6 py-12 max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col items-center md:items-start gap-2">
@@ -16,7 +16,7 @@ export default function Footer() {
               Full-Stack Developer & Cyber Security Enthusiast. Building secure, premium, and futuristic web experiences.
             </p>
           </div>
-          
+
           <div className="flex items-center gap-4">
             <a href="https://github.com/Mohdtsf" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full border border-glass-border hover:border-neon-blue hover:text-neon-blue text-gray-400 transition-all hover:shadow-[0_0_10px_rgba(0,245,255,0.3)]">
               <Github size={20} />
@@ -32,7 +32,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        
+
         <div className="mt-8 pt-8 border-t border-glass-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
           <p>© {currentYear} Mohd Tauseef Ansari. All rights reserved.</p>
           <div className="flex gap-4">
@@ -42,7 +42,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      
+
       {/* Subtle bottom glow */}
       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-neon-blue to-transparent opacity-30"></div>
     </footer>

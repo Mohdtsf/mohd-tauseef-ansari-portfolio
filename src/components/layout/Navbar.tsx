@@ -1,100 +1,108 @@
-'use client';
+'use client'
+import Link from 'next/link'
+import { Logo } from '@/components/logo'
+import { Menu, X } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import React from 'react'
+import { cn } from '@/lib/utils'
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Menu, X, Terminal } from 'lucide-react';
-
-const navItems = [
+const menuItems = [
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
   { name: 'Research', href: '#research' },
   { name: 'Contact', href: '#contact' },
-];
+]
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuState, setMenuState] = React.useState(false)
+  const [isScrolled, setIsScrolled] = React.useState(false)
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass py-4' : 'bg-transparent py-6'}`}
-    >
-      <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <Terminal className="text-neon-blue group-hover:text-electric-purple transition-colors" size={28} />
-          <span className="font-mono font-bold text-xl tracking-tighter text-foreground group-hover:text-gradient transition-all">
-            Mohdtsf<span className="text-neon-blue animate-cursor-blink">_</span>
-          </span>
-        </Link>
+    <header>
+      <nav
+        data-state={menuState && 'active'}
+        className="fixed z-50 w-full px-2">
+        <div className={cn('mx-auto mt-2 max-w-7xl px-6 transition-all duration-300 lg:px-12', isScrolled && 'bg-background/50 max-w-4xl rounded-2xl backdrop-blur-lg lg:px-5')}>
+          <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
+            <div className="flex w-full justify-between lg:w-auto">
+              <Link
+                href="/"
+                aria-label="home"
+                className="flex items-center space-x-2">
+                <Logo />
+              </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-gray-300 hover:text-white hover:text-shadow-neon transition-all"
-            >
-              {item.name}
-            </Link>
-          ))}
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-5 py-2 rounded-md font-medium text-sm border border-neon-blue text-neon-blue hover:bg-neon-blue/10 transition-colors shadow-[0_0_10px_rgba(0,245,255,0.2)] hover:shadow-[0_0_15px_rgba(0,245,255,0.4)]"
-          >
-            Resume
-          </a>
-        </nav>
+              <button
+                onClick={() => setMenuState(!menuState)}
+                aria-label={menuState === true ? 'Close Menu' : 'Open Menu'}
+                className="relative z-50 block cursor-pointer p-2 lg:hidden text-gray-300 hover:text-white transition-colors">
+                {menuState ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-gray-300 hover:text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
+            <div className="absolute inset-0 m-auto hidden size-fit lg:block">
+              <ul className="flex gap-8 text-sm">
+                {menuItems.map((item, index) => (
+                  <li key={index}>
+                    <Link
+                      href={item.href}
+                      className="text-gray-300 hover:text-white hover:text-shadow-neon font-medium transition-all block duration-150">
+                      <span>{item.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="md:hidden absolute top-full left-0 w-full glass border-t border-glass-border flex flex-col items-center py-6 gap-6"
-        >
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-medium text-gray-300 hover:text-white transition-all"
-            >
-              {item.name}
-            </Link>
-          ))}
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-2 rounded-md font-medium text-md border border-neon-blue text-neon-blue hover:bg-neon-blue/10"
-          >
-            Resume
-          </a>
-        </motion.div>
-      )}
+            {/* Mobile & Desktop Buttons */}
+            <div className={cn("bg-background/95 backdrop-blur-md mb-6 w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border border-white/10 p-6 shadow-2xl md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none", menuState ? "block" : "hidden")}>
+              <div className="lg:hidden">
+                <ul className="space-y-6 text-base">
+                  {menuItems.map((item, index) => (
+                    <li key={index}>
+                      <Link
+                        href={item.href}
+                        onClick={() => setMenuState(false)}
+                        className="text-gray-300 hover:text-white font-medium block duration-150">
+                        <span>{item.name}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit mt-6 lg:mt-0">
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="w-full sm:w-auto lg:hidden">
+                  <Link href="https://github.com" target="_blank">
+                    <span>Github</span>
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="sm"
+                  className={cn("w-full sm:w-auto", isScrolled ? 'lg:inline-flex' : '')}>
+                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                    <span>Resume</span>
+                  </a>
+                </Button>
+                {/* Keep the "Resume" visible un-scrolled on Desktop too to retain previous UX, or just follow their exact code where it's only on scroll. Their logic was `lg:inline-flex` if scrolled else `hidden`. I will honor it exactly: */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
-  );
+  )
 }

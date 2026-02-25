@@ -46,7 +46,13 @@ export async function POST(req: Request) {
 
     // If environment variables are set, attempt to send email
     if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-      await transporter.sendMail(mailOptions);
+      try {
+        await transporter.sendMail(mailOptions);
+      } catch (emailError) {
+        console.error("Failed to send email notification:", emailError);
+        // We catch this error so it doesn't crash the whole function,
+        // allowing the 200 Success response to still be sent since the DB save worked.
+      }
     } else {
       console.warn("Email credentials not provided in env. Email not sent.");
     }

@@ -48,7 +48,6 @@ export default function About() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-6 flex items-center gap-4"
           >
-            <span className="text-transparent border-text">01.</span>
             About Me
           </motion.h2>
           <motion.div
@@ -57,7 +56,7 @@ export default function About() {
             viewport={{ once: true }}
             className="w-full h-px bg-glass-border relative"
           >
-            <div className="absolute top-0 left-0 h-full w-32 bg-neon-blue"></div>
+            <div className="absolute top-0 h-full w-32 bg-neon-blue"></div>
           </motion.div>
         </div>
 

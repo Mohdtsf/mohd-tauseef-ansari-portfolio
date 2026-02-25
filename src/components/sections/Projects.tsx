@@ -53,24 +53,23 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        
+
         <div className="mb-16 md:mb-24 flex flex-col items-center md:items-start tracking-tight">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-6 flex items-center gap-4"
           >
-            <span className="text-transparent border-text">03.</span> 
             Featured Projects
           </motion.h2>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="w-full h-px bg-glass-border relative"
           >
-            <div className="absolute top-0 left-64 h-full w-32 bg-neon-blue"></div>
+            <div className="absolute top-0 left-0 h-full w-32 bg-neon-blue"></div>
           </motion.div>
         </div>
 
@@ -86,11 +85,11 @@ export default function Projects() {
               onClick={() => setSelectedProject(proj.id)}
             >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-neon-blue to-electric-purple rounded-2xl blur opacity-20 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
-              
+
               <div className="relative h-full bg-black/80 backdrop-blur-xl border border-glass-border rounded-2xl p-8 flex flex-col overflow-hidden transition-all duration-300">
                 {/* Decorative background circle */}
                 <div className={`absolute -right-20 -top-20 w-64 h-64 bg-gradient-to-br ${proj.color} rounded-full opacity-10 blur-[50px] group-hover:opacity-30 transition-opacity duration-500`}></div>
-                
+
                 <div className="flex justify-between items-start mb-6 relative z-10">
                   <div className="p-3 glass rounded-xl inline-block">
                     {proj.icon}
@@ -129,21 +128,21 @@ export default function Projects() {
       <AnimatePresence>
         {selectedProject && project && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" onClick={() => setSelectedProject(null)}>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             ></motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               onClick={(e) => e.stopPropagation()}
               className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto glass-panel rounded-2xl border-neon-blue/30 p-6 sm:p-10 shadow-[0_0_50px_rgba(0,0,0,0.8)]"
             >
-              <button 
+              <button
                 onClick={() => setSelectedProject(null)}
                 className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full glass hover:bg-white/10 text-gray-400 hover:text-white transition-colors z-20"
               >
