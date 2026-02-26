@@ -8,15 +8,25 @@ const experiences = [
     role: "Frontend Developer Intern",
     company: "Scan0 Software",
     date: "Feb 2025 - Aug 2025",
-    tech: ["Next.js", "React", "Tailwind", "TypeScript"],
-    description: "Developed modern frontend architectures, optimized web performance, and collaborated on AI-driven interfaces."
+    tech: ["Next.js", "React", "Tailwind", "TypeScript", "Node.js", "AI Tools"],
+    description: [
+      "Developed responsive and mobile-friendly UI components using Next.js, React, Tailwind CSS, and TypeScript.",
+      "Designed and implemented multiple user-facing pages following modern UX/UI and web accessibility standards.",
+      "Integrated frontend with APIs to render dynamic data and enhance component interactivity.",
+      "Collaborated closely with backend developers to deliver frontend components with seamless integration and agile delivery."
+    ]
   },
   {
     role: "Web Developer Intern",
     company: "RD ECom",
     date: "Sept 2022 - Mar 2023",
-    tech: ["WordPress", "HTML", "CSS", "SEO"],
-    description: "Built responsive business websites, managed e-commerce workflows, and implemented technical SEO improvements."
+    tech: ["WordPress", "Elementor", "HTML", "CSS", "JavaScript", "SEO"],
+    description: [
+      "Developed and maintained website front-end using HTML, CSS, and JavaScript for responsive user interfaces.",
+      "Managed and updated the company’s WordPress website, ensuring consistent performance and content accuracy.",
+      "Designed and customized web pages using Elementor and templates to align with business needs.",
+      "Wrote and published SEO-friendly posts and blogs, enhancing site visibility and user engagement."
+    ]
   }
 ];
 
@@ -77,13 +87,13 @@ export default function About() {
               <p className="text-gray-300 leading-relaxed mb-8">
                 My research approach to problem-solving ensures that I not only write clean architecture code but also build systems that are resilient against modern threats. I thrive at the cross-section of beautiful UI/UX, robust backend systems, and cutting-edge AI.
               </p>
-              <a
-                href="/resume.pdf"
+              {/* <a
+                href="/mohd-tauseef-ansari-resume.pdf"
                 target="_blank"
                 className="inline-flex items-center gap-2 text-white bg-glass-dark border border-electric-purple hover:bg-electric-purple/20 px-6 py-3 rounded-lg transition-all"
               >
                 <Download size={18} /> Download CV
-              </a>
+              </a> */}
             </motion.div>
 
             <div>
@@ -101,7 +111,8 @@ export default function About() {
                     className="glass p-6 rounded-xl border-glass-border hover:border-electric-purple/50 transition-colors group"
                   >
                     <h4 className="text-xl font-medium text-white group-hover:text-electric-purple transition-colors">{edu.degree}</h4>
-                    <span className="text-neon-blue font-mono text-sm block mb-2 mt-1">{edu.institution} • {edu.date}</span>
+                    <span className="text-neon-blue font-mono text-sm block mb-2 mt-1">{edu.institution}</span>
+                    <span className="text-neon-blue font-mono text-sm block mb-2 mt-1">{edu.date}</span>
                     <ul className="mt-4 space-y-2">
                       {/* {edu.highlights.map((h, i) => (
                         <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
@@ -142,7 +153,14 @@ export default function About() {
                     </div>
 
                     <div className="text-electric-purple font-medium mb-4">{exp.company}</div>
-                    <p className="text-gray-400 mb-6 text-sm leading-relaxed">{exp.description}</p>
+                    <ul className="mb-6 space-y-2">
+                      {exp.description.map((desc, i) => (
+                        <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
+                          <span className="text-electric-purple mt-1 shrink-0 text-[10px]">●</span>
+                          <span className="leading-relaxed">{desc}</span>
+                        </li>
+                      ))}
+                    </ul>
 
                     <div className="flex flex-wrap gap-2">
                       {exp.tech.map((t, i) => (

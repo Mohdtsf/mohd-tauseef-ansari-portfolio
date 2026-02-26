@@ -13,6 +13,8 @@ interface Repo {
 
 export default async function Github() {
   let repos: Repo[] = [];
+  let totalCommits = 200;
+  let totalRepos = 10;
 
   try {
     const res = await fetch('https://api.github.com/users/Mohdtsf/repos?sort=updated&per_page=6', {
@@ -24,8 +26,30 @@ export default async function Github() {
       // Filter out forks if desired, or sort them by stars
       repos = repos.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, 4);
     }
+
+    // Fetch user profile for total repos
+    const profileRes = await fetch('https://api.github.com/users/Mohdtsf', {
+      next: { revalidate: 3600 }
+    });
+    if (profileRes.ok) {
+      const profile = await profileRes.json();
+      if (profile.public_repos !== undefined) {
+        totalRepos = profile.public_repos;
+      }
+    }
+
+    // Fetch commit count using GitHub Search API
+    const commitsRes = await fetch('https://api.github.com/search/commits?q=author:Mohdtsf', {
+      next: { revalidate: 3600 }
+    });
+    if (commitsRes.ok) {
+      const commitsData = await commitsRes.json();
+      if (commitsData.total_count !== undefined) {
+        totalCommits = commitsData.total_count;
+      }
+    }
   } catch (error) {
-    console.error('Failed to fetch github repos:', error);
+    console.error('Failed to fetch github data:', error);
   }
 
   // Fallback data if API fails or user has no public repos yet
@@ -71,7 +95,7 @@ export default async function Github() {
           {/* GitHub Stats Card */}
           <div className="lg:w-1/3">
             <div className="glass p-8 rounded-2xl border-glass-border h-full flex flex-col items-center justify-center text-center relative overflow-hidden group hover:border-neon-blue/40 transition-colors">
-              <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
 
               <GithubIcon size={64} className="text-white mb-6" />
               <h3 className="text-2xl font-bold mb-2">@Mohdtsf</h3>
@@ -79,12 +103,16 @@ export default async function Github() {
 
               <div className="flex justify-center gap-6 w-full">
                 <div className="flex flex-col items-center">
-                  <span className="text-3xl font-bold text-neon-blue mb-1">200+</span>
+                  <span className="text-3xl font-bold text-neon-blue mb-1">
+                    {totalCommits}{totalCommits === 200 ? '+' : ''}
+                  </span>
                   <span className="text-xs text-gray-400 uppercase tracking-widest flex items-center gap-1"><GitCommit size={14} /> Commits</span>
                 </div>
                 <div className="w-px h-12 bg-glass-border"></div>
                 <div className="flex flex-col items-center">
-                  <span className="text-3xl font-bold text-electric-purple mb-1">10+</span>
+                  <span className="text-3xl font-bold text-electric-purple mb-1">
+                    {totalRepos}{totalRepos === 10 ? '+' : ''}
+                  </span>
                   <span className="text-xs text-gray-400 uppercase tracking-widest flex items-center gap-1"><GithubIcon size={14} /> Repos</span>
                 </div>
               </div>
@@ -93,7 +121,7 @@ export default async function Github() {
                 href="https://github.com/Mohdtsf"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-8 px-8 py-3 rounded-full border border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-black transition-colors sm:w-auto w-full font-medium"
+                className="mt-8 px-8 py-3 rounded-full border border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-black transition-colors sm:w-auto w-full font-medium relative z-10"
               >
                 Follow on GitHub
               </a>

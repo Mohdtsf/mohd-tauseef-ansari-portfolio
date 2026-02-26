@@ -62,7 +62,7 @@ export default function Hero() {
     <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       <ThreeBackground />
 
-      <div className="container relative z-10 mx-auto px-6 max-w-7xl flex flex-col-reverse lg:flex-row items-center justify-between mt-20 gap-16 lg:gap-8">
+      <div className="container relative z-10 mx-auto px-6 max-w-7xl flex flex-col-reverse lg:flex-row items-center justify-between mt-5 gap-16 lg:gap-8">
 
         {/* Left Side: Main Content */}
         <motion.div

@@ -93,7 +93,7 @@ export default function Navbar() {
                   asChild
                   size="sm"
                   className={cn("w-full sm:w-auto", isScrolled ? 'lg:inline-flex' : '')}>
-                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <a href="/mohd-tauseef-ansari-resume.pdf" target="_blank" rel="noopener noreferrer">
                     <span>Resume</span>
                   </a>
                 </Button>
