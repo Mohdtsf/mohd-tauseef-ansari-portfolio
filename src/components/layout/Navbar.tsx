@@ -64,7 +64,7 @@ export default function Navbar() {
             </div>
 
             {/* Mobile & Desktop Buttons */}
-            <div className={cn("bg-background/95 backdrop-blur-md mb-6 w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border border-white/10 p-6 shadow-2xl md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none", menuState ? "block" : "hidden")}>
+            <div className={cn("bg-background/50 backdrop-blur-md mb-6 w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border border-white/10 p-6 shadow-2xl md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none", menuState ? "block" : "hidden")}>
               <div className="lg:hidden">
                 <ul className="space-y-6 text-base">
                   {menuItems.map((item, index) => (
@@ -80,20 +80,20 @@ export default function Navbar() {
                 </ul>
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit mt-6 lg:mt-0">
-                <Button
+                {/* <Button
                   asChild
                   variant="outline"
                   size="sm"
                   className="w-full sm:w-auto lg:hidden">
-                  <Link href="https://github.com" target="_blank">
+                  <Link href="https://github.com/Mohdtsf" target="_blank">
                     <span>Github</span>
                   </Link>
-                </Button>
+                </Button> */}
                 <Button
                   asChild
                   size="sm"
                   className={cn("w-full sm:w-auto", isScrolled ? 'lg:inline-flex' : '')}>
-                  <a href="/mohd-tauseef-ansari-resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <a href="https://drive.google.com/file/d/1dvw5J9Y4G9nggI0A0isVXt2p_VDwmEyL/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
                     <span>Resume</span>
                   </a>
                 </Button>

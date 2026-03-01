@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ExternalLink, X, Cpu, Shield } from 'lucide-react';
+import { Github, ExternalLink, X, Cpu, Shield, MessageCircle, Wand2 } from 'lucide-react';
 
 const projects = [
   {
     id: 1,
-    title: "AI-Driven Network Traffic Analysis",
+    title: "AI-Driven Network Traffic Analysis And Visualization Tool",
     category: "AI & Cyber Security",
     icon: <Cpu className="text-neon-blue w-6 h-6" />,
     shortDesc: "Real-time anomaly detection system using Isolation Forest to identify network intrusions and malicious traffic.",
@@ -20,13 +20,13 @@ const projects = [
       "Feedback learning system to improve model accuracy over time"
     ],
     github: "https://github.com/Mohdtsf",
-    demo: "#", // Placeholder
-    image: "/project1-bg.jpg", // We'll add subtle gradients if no image
+    demo: "", // Leave empty if there is no live demo
+    image: "/AI-Driven Network Traffic Analysis And Visualization Tool.png", // Add project image absolute/relative path here
     color: "from-neon-blue to-electric-purple"
   },
   {
     id: 2,
-    title: "Image Encrypt-Decrypt Utility",
+    title: "Image Encrypt-Decrypt Using AES With Flask",
     category: "Cryptography",
     icon: <Shield className="text-electric-purple w-6 h-6" />,
     shortDesc: "Secure local web utility for encrypting and decrypting images using AES standard with SHA-256 keys.",
@@ -39,9 +39,47 @@ const projects = [
       "Live encryption/decryption demo UI"
     ],
     github: "https://github.com/Mohdtsf",
-    demo: "#", // Placeholder
-    image: "/project2-bg.jpg",
+    demo: "https://image-encrypt-decrypt-using-aes-with-flask.vercel.app/", // Leave empty if there is no live demo
+    image: "/Image Encrypt-Decrypt Using AES With Flask.png",
     color: "from-electric-purple to-pink-500"
+  },
+  {
+    id: 3,
+    title: "Pickabook - AI Children's Book Personalization",
+    category: "AI & Full-Stack",
+    icon: <Wand2 className="text-pink-400 w-6 h-6" />,
+    shortDesc: "End-to-end prototype that personalizes a children's book illustration using a user photo via facial detection and Replicate img2img.",
+    fullDesc: "A complete prototype application where users can upload a child's photo, which is processed using MediaPipe for face detection and cropped. The face is then stylized using Replicate's img2img AI models and seamlessly pasted into a provided illustration template using Pillow and OpenCV. Built with a FastAPI backend and a modern Next.js frontend.",
+    techStack: ["Next.js", "FastAPI", "Python", "Replicate API", "MediaPipe", "OpenCV"],
+    features: [
+      "Automated face detection and cropping using MediaPipe",
+      "AI Image stylization via Replicate img2img models",
+      "Seamless insertion into illustration templates",
+      "Full-stack architecture with Next.js and FastAPI"
+    ],
+    github: "https://github.com/Mohdtsf/pickabook-prototype-assignment",
+    demo: "",
+    image: "/Pickabook - AI Children's Book Personalization.png",
+    color: "from-pink-400 to-indigo-500"
+  },
+  {
+    id: 4,
+    title: "Django Real-Time Chat Application",
+    category: "Web Development",
+    icon: <MessageCircle className="text-green-400 w-6 h-6" />,
+    shortDesc: "A real-time chat application built with Django for the backend and WebSockets for seamless real-time communication.",
+    fullDesc: "A robust real-time chatting platform featuring user registration, authentication, and instant messaging between users. It leverages Django Channels and WebSockets to handle concurrent real-time connections, alongside a responsive UI featuring a fixed navbar and collapsible menus. Messages are securely stored in the database for persistence.",
+    techStack: ["Django", "Python", "WebSockets", "Django Channels", "HTML/CSS/JS"],
+    features: [
+      "User registration and secure authentication",
+      "Real-time instant messaging using WebSockets",
+      "Responsive design with collapsible chat menus",
+      "Persistent chat history stored in SQL database"
+    ],
+    github: "https://github.com/Mohdtsf/Chatting-App-Using-Django",
+    demo: "",
+    image: "/Django Real-Time Chat Application.png",
+    color: "from-green-400 to-teal-500"
   }
 ];
 
@@ -86,36 +124,47 @@ export default function Projects() {
             >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-neon-blue to-electric-purple rounded-2xl blur opacity-20 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
 
-              <div className="relative h-full bg-black/80 backdrop-blur-xl border border-glass-border rounded-2xl p-8 flex flex-col overflow-hidden transition-all duration-300">
-                {/* Decorative background circle */}
-                <div className={`absolute -right-20 -top-20 w-64 h-64 bg-gradient-to-br ${proj.color} rounded-full opacity-10 blur-[50px] group-hover:opacity-30 transition-opacity duration-500`}></div>
-
-                <div className="flex justify-between items-start mb-6 relative z-10">
-                  <div className="p-3 glass rounded-xl inline-block">
-                    {proj.icon}
+              <div className="relative h-full bg-black/80 backdrop-blur-xl border border-glass-border rounded-2xl flex flex-col overflow-hidden transition-all duration-300">
+                {proj.image && (
+                  <div className="h-48 w-full overflow-hidden relative border-b border-glass-border/30 shrink-0">
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                    <img src={proj.image} alt={proj.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   </div>
-                  <div className="flex gap-3">
-                    <a href={proj.github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors p-2" onClick={(e) => e.stopPropagation()}>
-                      <Github size={20} />
-                    </a>
-                    <a href={proj.demo} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-neon-blue transition-colors p-2" onClick={(e) => e.stopPropagation()}>
-                      <ExternalLink size={20} />
-                    </a>
+                )}
+
+                <div className="p-8 flex flex-col flex-grow relative overflow-hidden">
+                  {/* Decorative background circle */}
+                  <div className={`absolute -right-20 -top-20 w-64 h-64 bg-gradient-to-br ${proj.color} rounded-full opacity-10 blur-[50px] group-hover:opacity-30 transition-opacity duration-500`}></div>
+
+                  <div className="flex justify-between items-start mb-6 relative z-10">
+                    <div className="p-3 glass rounded-xl inline-block">
+                      {proj.icon}
+                    </div>
+                    <div className="flex gap-3">
+                      <a href={proj.github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors p-2" onClick={(e) => e.stopPropagation()}>
+                        <Github size={20} />
+                      </a>
+                      {proj.demo && (
+                        <a href={proj.demo} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-neon-blue transition-colors p-2" onClick={(e) => e.stopPropagation()}>
+                          <ExternalLink size={20} />
+                        </a>
+                      )}
+                    </div>
                   </div>
-                </div>
 
-                <div className="relative z-10 flex-grow">
-                  <span className="text-xs font-mono text-neon-blue mb-2 block">{proj.category}</span>
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-electric-purple transition-colors">{proj.title}</h3>
-                  <p className="text-gray-400 leading-relaxed mb-8">{proj.shortDesc}</p>
-                </div>
+                  <div className="relative z-10 flex-grow">
+                    <span className="text-xs font-mono text-neon-blue mb-2 block">{proj.category}</span>
+                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-electric-purple transition-colors">{proj.title}</h3>
+                    <p className="text-gray-400 leading-relaxed mb-8">{proj.shortDesc}</p>
+                  </div>
 
-                <div className="mt-auto relative z-10 pt-6 border-t border-glass-border/50">
-                  <div className="flex flex-wrap gap-2 text-sm font-mono text-gray-400">
-                    {proj.techStack.slice(0, 4).map((tech, i) => (
-                      <span key={i} className="bg-white/5 px-2 py-1 rounded border border-white/5">{tech}</span>
-                    ))}
-                    {proj.techStack.length > 4 && <span className="px-2 py-1">+{proj.techStack.length - 4}</span>}
+                  <div className="mt-auto relative z-10 pt-6 border-t border-glass-border/50">
+                    <div className="flex flex-wrap gap-2 text-sm font-mono text-gray-400">
+                      {proj.techStack.slice(0, 4).map((tech, i) => (
+                        <span key={i} className="bg-white/5 px-2 py-1 rounded border border-white/5">{tech}</span>
+                      ))}
+                      {proj.techStack.length > 4 && <span className="px-2 py-1">+{proj.techStack.length - 4}</span>}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -149,6 +198,12 @@ export default function Projects() {
                 <X size={24} />
               </button>
 
+              {project.image && (
+                <div className="w-full h-48 sm:h-80 mb-8 rounded-xl overflow-hidden relative border border-glass-border/30 mt-12 sm:mt-0">
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                </div>
+              )}
+
               <div className="mb-6">
                 <span className="inline-block py-1 px-3 rounded-full border border-electric-purple/30 bg-electric-purple/10 text-electric-purple text-xs font-mono mb-4">
                   {project.category}
@@ -160,9 +215,11 @@ export default function Projects() {
                 <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors bg-white/5 px-4 py-2 rounded-md">
                   <Github size={18} /> Source Code
                 </a>
-                <a href={project.demo} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm font-medium text-neon-blue hover:text-white hover:bg-neon-blue/20 transition-colors border border-neon-blue/30 px-4 py-2 rounded-md">
-                  <ExternalLink size={18} /> Live Demo
-                </a>
+                {project.demo && (
+                  <a href={project.demo} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm font-medium text-neon-blue hover:text-white hover:bg-neon-blue/20 transition-colors border border-neon-blue/30 px-4 py-2 rounded-md">
+                    <ExternalLink size={18} /> Live Demo
+                  </a>
+                )}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">

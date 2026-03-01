@@ -4,7 +4,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Terminal } from 'lucide-react';
+import { ArrowDown, Github, Terminal, Linkedin, Instagram, Twitter, Facebook } from 'lucide-react';
 
 const techBadges = [
   'React', 'Next.js', 'Node', 'JavaScript', 'TypeScript', 'Python', 'Java', 'MongoDB', 'SQL', 'Docker', 'AWS'
@@ -100,7 +100,7 @@ export default function Hero() {
             <a href="/mohd-tauseef-ansari-resume.pdf" target="_blank" className="px-8 py-3 rounded-md border border-glass-border glass hover:border-electric-purple hover:shadow-[0_0_20px_rgba(127,90,240,0.4)] transition-all flex items-center gap-2">
               <ArrowDown size={18} /> Download Resume
             </a>
-            <a href="https://github.com/Mohdtsf" target="_blank" rel="noreferrer" className="px-8 py-3 rounded-md border border-glass-border glass hover:border-white transition-all flex items-center gap-2">
+            <a href="https://github.com/Mohdtsf" target="_blank" rel="noreferrer" className="px-8 py-3 rounded-md border border-glass-border glass hover:border-electric-green hover:shadow-[0_0_20px_rgba(0,255,127,0.4)] transition-all flex items-center gap-2">
               <Github size={18} /> GitHub
             </a>
           </div>
@@ -129,77 +129,92 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full lg:w-2/5 flex justify-center lg:justify-end relative mt-10 lg:mt-0"
+          className="w-full lg:w-2/5 flex flex-col items-center lg:items-end relative mt-10 lg:mt-0"
         >
-          <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
+          <div className="flex flex-col items-center">
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
 
-            {/* Glowing Background Glow */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-neon-blue to-electric-purple rounded-full blur-[80px] opacity-20 animate-pulse"></div>
+              {/* Glowing Background Glow */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-neon-blue to-electric-purple rounded-full blur-[80px] opacity-20 animate-pulse"></div>
 
-            {/* Orbital Rings representing tech & cybersecurity architecture */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-[-15px] rounded-full border border-dashed border-neon-blue/40"
-            ></motion.div>
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-[-30px] rounded-full border border-glass-border"
-            ></motion.div>
+              {/* Orbital Rings representing tech & cybersecurity architecture */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-[-15px] rounded-full border border-dashed border-neon-blue/40"
+              ></motion.div>
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-[-30px] rounded-full border border-glass-border"
+              ></motion.div>
 
-            {/* Main Image Frame (Glassmorphism) */}
-            <div className="absolute inset-0 rounded-full border-2 border-glass-border p-2 overflow-hidden glass hover:border-electric-purple transition-colors duration-500 z-10 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-              <div className="w-full h-full rounded-full bg-black/60 border border-white/5 overflow-hidden relative group flex items-center justify-center">
+              {/* Main Image Frame (Glassmorphism) */}
+              <div className="absolute inset-0 rounded-full border-2 border-glass-border p-2 overflow-hidden glass hover:border-electric-purple transition-colors duration-500 z-10 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+                <div className="w-full h-full rounded-full bg-black/60 border border-white/5 overflow-hidden relative group flex items-center justify-center">
 
-                {/* Inner Gradient Base */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-electric-purple/20 to-neon-blue/20"></div>
+                  {/* Inner Gradient Base */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-electric-purple/20 to-neon-blue/20"></div>
 
-                {/* 
-                  * TODO: Place your actual image here!
-                  * Example:
-                  * <img src="/your-profile.jpg" alt="Mohd Tauseef Ansari" className="absolute inset-0 w-full h-full object-cover z-10" />
-                  * OR if using Next.js Image:
-                  * <Image src="/your-profile.jpg" alt="Mohd Tauseef Ansari" fill className="object-cover z-10" />
-                */}
+                  <img
+                    src="/mohd-tauseefansari.png"
+                    alt="Mohd Tauseef Ansari"
+                    draggable="false"
+                    className="absolute inset-0 w-full h-full object-cover z-10 pointer-events-none select-none [-webkit-user-drag:none] [user-drag:none]"
+                  />
 
-                {/* Replace the placeholder div with this: */}
-                <img
-                  src="/mohd-tauseefansari.png"
-                  alt="Mohd Tauseef Ansari"
-                  draggable="false"
-                  className="absolute inset-0 w-full h-full object-cover z-10 pointer-events-none select-none [-webkit-user-drag:none] [user-drag:none]"
-                />
-
-
-                {/* <div className="text-center relative z-20 group-hover:scale-110 transition-transform duration-500 flex flex-col items-center gap-2">
-                  <div className="w-16 h-16 rounded-full glass border border-neon-blue/40 flex items-center justify-center text-neon-blue shadow-[0_0_15px_rgba(0,245,255,0.4)] mb-2">
-                    <Terminal size={28} />
-                  </div>
-                  <span className="font-mono text-sm text-gray-300 block bg-black/50 px-3 py-1 rounded">PLACE IMAGE HERE</span>
-                  <span className="text-xs text-neon-blue">src/components/sections/Hero.tsx</span>
-                </div> */}
-
+                </div>
               </div>
+
+              {/* Floating Tech Nodes */}
+              <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+                className="absolute top-10 -right-4 md:-right-8 glass p-3 md:p-4 rounded-2xl border-neon-blue/30 text-neon-blue shadow-[0_0_20px_rgba(0,245,255,0.3)] z-20 bg-black/50 backdrop-blur-md"
+              >
+                <Terminal size={24} />
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 15, 0] }}
+                transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 }}
+                className="absolute bottom-10 -left-4 md:-left-8 glass p-3 md:p-4 rounded-xl border-electric-purple/30 text-electric-purple shadow-[0_0_20px_rgba(127,90,240,0.3)] z-20 bg-black/50 backdrop-blur-md"
+              >
+                <Github size={24} />
+              </motion.div>
+
             </div>
 
-            {/* Floating Tech Nodes */}
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
-              className="absolute top-10 -right-4 md:-right-8 glass p-3 md:p-4 rounded-2xl border-neon-blue/30 text-neon-blue shadow-[0_0_20px_rgba(0,245,255,0.3)] z-20 bg-black/50 backdrop-blur-md"
-            >
-              <Terminal size={24} />
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 }}
-              className="absolute bottom-10 -left-4 md:-left-8 glass p-3 md:p-4 rounded-xl border-electric-purple/30 text-electric-purple shadow-[0_0_20px_rgba(127,90,240,0.3)] z-20 bg-black/50 backdrop-blur-md"
-            >
-              <Github size={24} />
-            </motion.div>
-
+            {/* Social Icons Below Photo */}
+            <div className="flex flex-col items-center justify-center gap-5 mt-16 z-10">
+              <p className="text-sm font-mono text-gray-400 uppercase tracking-widest flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-electric-purple/50"></span>
+                Follow Me
+                <span className="w-8 h-[1px] bg-electric-purple/50"></span>
+              </p>
+              <div className="flex gap-4">
+                <a href="https://www.linkedin.com/in/mohd-tauseef-ansari/" target="_blank" rel="noreferrer" className="group">
+                  <div className="glass p-3 rounded-xl border-electric-purple/30 text-electric-purple shadow-[0_0_20px_rgba(127,90,240,0.3)] z-20 bg-black/50 backdrop-blur-md group-hover:scale-110 transition-all duration-300">
+                    <Linkedin size={20} />
+                  </div>
+                </a>
+                <a href="https://x.com/MoTauseefAnsari" target="_blank" rel="noreferrer" className="group">
+                  <div className="glass p-3 rounded-xl border-neon-blue/30 text-neon-blue shadow-[0_0_20px_rgba(0,245,255,0.3)] z-20 bg-black/50 backdrop-blur-md group-hover:scale-110 transition-all duration-300">
+                    <Twitter size={20} />
+                  </div>
+                </a>
+                <a href="https://www.instagram.com/tauseefansari131484?igsh=MWR4Y285OTRucG50NQ==" target="_blank" rel="noreferrer" className="group">
+                  <div className="glass p-3 rounded-xl border-electric-purple/30 text-electric-purple shadow-[0_0_20px_rgba(127,90,240,0.3)] z-20 bg-black/50 backdrop-blur-md group-hover:scale-110 transition-all duration-300">
+                    <Instagram size={20} />
+                  </div>
+                </a>
+                <a href="https://www.facebook.com/share/1AxGx7Aw4Y/" target="_blank" rel="noreferrer" className="group">
+                  <div className="glass p-3 rounded-xl border-neon-blue/30 text-neon-blue shadow-[0_0_20px_rgba(0,245,255,0.3)] z-20 bg-black/50 backdrop-blur-md group-hover:scale-110 transition-all duration-300">
+                    <Facebook size={20} />
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
         </motion.div>
 

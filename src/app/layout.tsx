@@ -17,6 +17,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mohdtauseefansari.com"),
   title: "Mohd Tauseef Ansari | Full-Stack Developer",
   description: "Portfolio of Mohd Tauseef Ansari, a Full-Stack Developer, Cyber Security Researcher, and AI/ML Enthusiast based in New Delhi, India.",
   keywords: ["Full-Stack Developer", "Next.js", "Cyber Security", "AI Developer India", "Mohd Tauseef Ansari", "React", "Node.js"],
