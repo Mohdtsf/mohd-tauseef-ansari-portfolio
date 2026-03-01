@@ -17,7 +17,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mohdtauseefansari.com"),
+  metadataBase: new URL("https://mohd-tauseef-ansari-portfolio.vercel.app"),
   title: "Mohd Tauseef Ansari | Full-Stack Developer",
   description: "Portfolio of Mohd Tauseef Ansari, a Full-Stack Developer, Cyber Security Researcher, and AI/ML Enthusiast based in New Delhi, India.",
   keywords: ["Full-Stack Developer", "Next.js", "Cyber Security", "AI Developer India", "Mohd Tauseef Ansari", "React", "Node.js"],
@@ -26,15 +26,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://mohdtauseefansari.com",
+    url: "https://mohd-tauseef-ansari-portfolio.vercel.app",
     siteName: "Mohd Tauseef Ansari Portfolio",
     title: "Mohd Tauseef Ansari | Full-Stack Developer",
     description: "Full-Stack Engineer with AI-Security Specialization.",
     images: [
       {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
+        url: "/mohd-tauseefansari.png",
+        width: 640,
+        height: 640,
         alt: "Mohd Tauseef Ansari - Full Stack Developer",
       },
     ],

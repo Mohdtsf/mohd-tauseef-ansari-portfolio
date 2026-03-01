@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://mohdtauseefansari.com/sitemap.xml',
+    sitemap: 'https://mohd-tauseef-ansari-portfolio.vercel.app/sitemap.xml',
   };
 }
