@@ -93,7 +93,7 @@ export default function Navbar() {
                   asChild
                   size="sm"
                   className={cn("w-full sm:w-auto", isScrolled ? 'lg:inline-flex' : '')}>
-                  <a href="https://drive.google.com/file/d/1dvw5J9Y4G9nggI0A0isVXt2p_VDwmEyL/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://drive.google.com/file/d/1qjERHNydzhF0ec8DwZo8m7uVYAztDKRs/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
                     <span>Resume</span>
                   </a>
                 </Button>
