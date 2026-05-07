@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Github, Terminal, Linkedin, Instagram, Twitter, Facebook } from 'lucide-react';
 
 const techBadges = [
-  'React', 'Next.js', 'Node', 'JavaScript', 'TypeScript', 'Python', 'Java', 'MongoDB', 'SQL', 'Docker', 'AWS'
+  'React', 'Next.js', 'Node', 'JavaScript', 'TypeScript', 'Python', 'Java', 'MongoDB', 'SQL', 'Postman', 'Docker', 'Git', 'GitHub', 'Linux'
 ];
 
 function ThreeBackground() {
